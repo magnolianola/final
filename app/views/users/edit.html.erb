@@ -1,0 +1,14 @@
+<p>My Profile</p>
+
+<p>Hello, <%= @user.username %>.</p>
+<p>Tell us about yourself.</p>
+
+<!-- 
+<%= @user.profile %> -->
+	<%= form_for(@user) do |f| %>
+	<%= f.text_area :profile %>
+
+	<%= f.submit %>
+<% end %>
+
+<p><%= link_to "Back to Home", topics_url %></p>

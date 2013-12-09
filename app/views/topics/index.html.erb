@@ -1,0 +1,36 @@
+<h1>Superforum</h1>
+<% if current_user %>
+	
+	<%= link_to "Log Out", :logout %> |
+  <%= link_to "My Profile", user_path(current_user)%> |
+  <%= link_to "Back to Home", topics_path %> |
+  <%= link_to "Add New Topic", new_topic_path %>
+<% else %>
+	<%= link_to "Register", signup_path %> |
+	<%= link_to "Log In", :login %> |
+
+<% end %>
+<p>Welcome to Superforum. Here you can interact with other users by creating and discussing your own topics. 
+Please read the rules before posting or replying to threads. Otherwise you may get banned! Have fun.</p>
+<p>Click on a topic name to see all of its threads.</p>
+<table border="1">  
+  <tr>  
+    <th width="30%">Topic</th>  
+    <th width="30%">Description</th>  
+    <th width="30%">Last Post</th>
+  </tr>  
+  <% @topics.each do |t| %>
+
+  <tr>
+    <td>
+      <%= link_to t.name, topic_path(t) %>
+    </td>
+    <td>
+      <%= t.description %>
+    </td>
+  </tr>
+      <% end %>
+</table>  
+
+
+

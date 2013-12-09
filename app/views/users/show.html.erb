@@ -1,0 +1,9 @@
+<p>My Profile</p>
+
+<p>Hello, <%= @user.username %>.</p>
+<p>Tell us about yourself.</p>
+
+<%= @user.profile %>
+	
+
+<p><%= link_to "Edit My Profile", edit_user_path %> | <%= link_to "Back to Home", topics_url %></p>

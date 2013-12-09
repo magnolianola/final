@@ -1,0 +1,32 @@
+<h1>All Threads For <%= @topic.name %></h1>
+<p><%= @topic.description %></p>
+<%= link_to "Delete this Topic", topic_path(@topic), :confirm => "Are you sure you want to delete this topic?", :method => :delete %> | 
+<%= link_to "Back to Topics", topics_path %> |
+<%= link_to "Post a New Thread", new_topic_subject_path(@topic) %>
+
+
+<table border="1">  
+  <tr>  
+    <th width="30%">Thread</th>  
+    <th width="30%">Description</th>
+    <th width="30%">Last Post</th>  
+  </tr>  
+  <% @topic.subjects.each do |x| %>
+  <tr>
+  	<td>
+   
+    <%= link_to "(Delete this Thread)", topic_subject_path(@topic, x), :confirm => "Are you sure you want to delete this thread?", :method => :delete %> 
+     <%= link_to x.name, topic_subject_path(@topic, x) %>
+	</td>
+	<td>
+		<%= x.description %>
+	</td>
+  </tr>
+
+  
+  	<% end %>
+</table>  
+
+
+
+

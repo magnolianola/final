@@ -1,0 +1,27 @@
+hello
+
+
+(name, description from subjects)
+
+@subject.name
+
+
+<% if @subject.comments %>
+<% @subject.comments.each do |x| %>
+
+	<%= x.user_id %>
+	<%= x.note %>
+	<%= x.created_at %>
+<% end %>
+<% else %>
+	hello
+<% end %>
+
+<!-- 
+<table border="1">
+	<tr>
+		<td>
+		<td>
+	<tr>
+</table>
+ -->
