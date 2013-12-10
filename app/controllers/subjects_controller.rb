@@ -15,6 +15,11 @@ class SubjectsController < ApplicationController
 		end
 	end
 
+	def show
+  		@subject = Subject.find(params[:id])
+  		@comment = Comment.new
+ 	end
+
 	private
 	def subject_params
   	params.require(:subject).permit(:name, :description, :topic_id)
@@ -24,7 +29,5 @@ class SubjectsController < ApplicationController
   		@topic = Topic.find(params[:topic_id])
   	end
 
-  	def show
-  	@subject = Subject.find(params[:id])
- 	end
+ 
 end

@@ -5,14 +5,22 @@ class CommentsController < ApplicationController
 		@comment = Comment.new
 	end
 
+	def show
+  		@comment = Comment.find(params[:id])
+ 	end
+
 	def create
-		@comment = @comment.subjects.build(subject_params)
+		@comment = @subject.comments.build(comment_params)
+		@comment.user = current_user
+		if @comment.save
+			redirect_to topic_subject_path(@subject.topic, @subject)
+		end
 	end
 
 	def update
 		@comment = Comment.find(params[:id])
 
-		if @comment.update_attributes(subject_params)
+		if @comment.update_attributes(comment_params)
 			redirect_to comment_subject_path(@comment.id, params[:id])
 		else
 			render :action => :new

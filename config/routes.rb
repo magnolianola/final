@@ -6,7 +6,9 @@ Superforum::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   resources :topics do
-    resources :subjects
+    resources :subjects do
+      resources :comments
+    end
   end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users

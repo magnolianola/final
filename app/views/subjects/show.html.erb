@@ -1,27 +1,35 @@
-hello
+<%= @subject.name %>
 
 
-(name, description from subjects)
-
-@subject.name
 
 
 <% if @subject.comments %>
-<% @subject.comments.each do |x| %>
-
-	<%= x.user_id %>
-	<%= x.note %>
-	<%= x.created_at %>
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Joined</th>
+			<th>Comment</th>
+			<th>Posted on:</th>
+		</tr>
+		<% @subject.comments.each do |x| %>
+			<tr>
+				<td><%= x.user.username %></td>
+				<td><%= x.user.created_at %></td>
+				<td><%= x.note %></td>
+				<td><%= x.created_at %></td>
+			</tr>
+		<% end %>	
+	</table>
 <% end %>
-<% else %>
-	hello
+
+<%= form_for [@subject.topic, @subject, @comment] do |f| %>
+  Write Post:
+  
+       
+        <%= f.text_area :note %>
+
+		<%= f.submit %>
+	</div>
+    
 <% end %>
 
-<!-- 
-<table border="1">
-	<tr>
-		<td>
-		<td>
-	<tr>
-</table>
- -->
