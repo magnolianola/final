@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
- 
+  has_many :subjects
   has_many :comments
+  has_many :topics
+
+  # acts_as_messageable
+
+  # def name
+  # end
+
+  # def mailboxer_email(object)
+  # 	return define_email@on_your.model"
+  # end
 end

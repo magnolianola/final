@@ -29,6 +29,12 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'sorcery'
 
+gem 'mailboxer'
+
+gem 'carrierwave'
+
+gem 'mime-types'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

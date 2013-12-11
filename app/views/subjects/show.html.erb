@@ -8,28 +8,28 @@
 		<tr>
 			<th>Name</th>
 			<th>Joined</th>
-			<th>Comment</th>
+			<th>Posts</th>
 			<th>Posted on:</th>
 		</tr>
 		<% @subject.comments.each do |x| %>
 			<tr>
-				<td><%= x.user.username %></td>
-				<td><%= x.user.created_at %></td>
+				<td><%= link_to x.user.username, user_path(x.user_id) %></td>
+				<td><%= display_date(x.user.created_at) %></td>
 				<td><%= x.note %></td>
-				<td><%= x.created_at %></td>
+				<td><%= display_date(x.created_at) %></td>
 			</tr>
 		<% end %>	
 	</table>
-<% end %>
-
-<%= form_for [@subject.topic, @subject, @comment] do |f| %>
-  Write Post:
-  
+	<%= form_for [@subject.topic, @subject, @comment] do |f| %>
+  				
+  					<%= f.file_field :photo %>
        
-        <%= f.text_area :note %>
+      				<%= f.text_area :note %>
 
-		<%= f.submit %>
-	</div>
+					<%= f.submit %>
     
+	<% end %>
 <% end %>
+
+
 
