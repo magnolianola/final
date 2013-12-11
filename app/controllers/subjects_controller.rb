@@ -2,12 +2,6 @@ class SubjectsController < ApplicationController
 	before_filter :load_topic
 	def new
 		@subject = Subject.new
-		@subject.photo = params[:file]
-		@subject.photo = File.open('somewhere')
-		@subject.photo.save!
-		@subject.photo.url
-		@subject.photo.current_path
-		@subject.photo.identifier
 	end
 
 	def create

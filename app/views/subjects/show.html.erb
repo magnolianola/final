@@ -15,14 +15,14 @@
 			<tr>
 				<td><%= link_to x.user.username, user_path(x.user_id) %></td>
 				<td><%= display_date(x.user.created_at) %></td>
-				<td><%= x.note %></td>
+				<td><%= x.note %>  <%= image_tag( x.photo.url ) %></td>
 				<td><%= display_date(x.created_at) %></td>
 			</tr>
 		<% end %>	
 	</table>
-	<%= form_for [@subject.topic, @subject, @comment] do |f| %>
+	<%= form_for [@subject.topic, @subject, @comment], :html => { :multipart => true} do |f| %>
   				
-  					<%= f.file_field :photo %>
+  					<%= f.file_field :photo %></p>
        
       				<%= f.text_area :note %>
 

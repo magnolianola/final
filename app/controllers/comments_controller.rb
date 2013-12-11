@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
 
 	private
 	def comment_params
-		params.require(:comment).permit(:note, :user_id, :subject_id)
+		params.require(:comment).permit(:note, :user_id, :subject_id, :photo)
 	end
 	def load_subject
 		@subject = Subject.find(params[:subject_id])
