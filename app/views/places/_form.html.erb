@@ -1,0 +1,55 @@
+<%= form_for(@place) do |f| %>
+  		<% if @place.errors.any? %>
+    	<div id="error_explanation">
+	     	<h2>
+	     		<%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:
+	     	</h2>
+
+     		<ul>
+	      		<% @place.errors.full_messages.each do |msg| %>
+	       		<li><%= msg %></li>
+     			<% end %>
+      		</ul>
+   		</div>
+  		<% end %>
+		<div class="field">
+			<%= f.label :name %><br/>
+			<%= f.text_field :name %>
+		</div>
+		<div class="field">
+			<%= f.label :description %><br/>
+			<%= f.text_area :description %>
+		</div>
+		<div class="field">
+			<%= f.label :address %><br/>
+			<%= f.text_area :address %>
+		</div>
+		<div class="field">
+			<%= f.label :phone %><br/>
+			<%= f.text_area :phone %>
+		</div>
+		<div class="field">
+			<%= f.label :email %><br/>
+			<%= f.text_area :email %>
+		</div>
+		<div class="field">
+			<b>Monday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Tuesday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Wednesday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Thursday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Friday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Saturday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+			<b>Sunday</b><br/>
+			<%= f.time_select :hours %> - <%= f.time_select :hours %><br/>
+		</div>
+		
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+<% end %>

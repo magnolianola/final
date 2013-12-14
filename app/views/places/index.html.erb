@@ -1,0 +1,7 @@
+<h1>All Places</h1>
+
+<% @places.each do |place| %>
+	<b><%= link_to place.name, place_path(place) %></b><!-- </b>: <%= place.description %></p>
+	<%= place.address %></p>
+	<%= place.phone %> -->
+<% end %>

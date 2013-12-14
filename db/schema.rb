@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211230936) do
+ActiveRecord::Schema.define(version: 20131214195800) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20131211230936) do
 
   add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id"
 
+  create_table "places", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "hours"
+    t.string   "email"
+  end
+
   create_table "posts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,6 +82,12 @@ ActiveRecord::Schema.define(version: 20131211230936) do
   end
 
   add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id"
+
+  create_table "resources", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subjects", force: true do |t|
     t.string   "name"
