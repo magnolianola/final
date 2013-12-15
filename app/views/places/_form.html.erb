@@ -32,6 +32,10 @@
 			<%= f.label :email %><br/>
 			<%= f.text_area :email %>
 		</div>
+		<div class="field">
+			<%= f.label :category %><br/>
+			<%= f.select(:category, options_for_select([["Books"], ["Peer Groups"], ["Transitioning"], ["Activism"], ["Other Resources"]], selected: :category), :prompt => true) %>
+		</div>
 		
 		
 		<div class="actions">
