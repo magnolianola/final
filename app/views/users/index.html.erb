@@ -1,9 +1,17 @@
 <h1>Clothing Swap</h1>
+<% if current_user %>
+	<%= link_to "Post New Clothing", new_user_item_path(current_user.id) %>
+<% else %>
+	<%= link_to "Post New Clothing", login_path %>
+<% end %>
 
 <% @users.each do |x| %>
-<% x.items.each do |i| %>
-	<li><%= i.name %></li>
-	<p><%= i.description %></p>
-	<p><%= image_tag( i.image.url(:thumb) ) %></p>
+	<% x.items.each do |i| %>
+		<li><%= i.name %></li>
+		<p><%= i.description %></p>
+		<p><%= image_tag i.image_url :thumb %></p>
+		<%= link_to "See More", user_items_path(x)%>
+		
 	<% end %>
 <% end %>
+

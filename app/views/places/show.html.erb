@@ -8,20 +8,23 @@
 <% if @nearby_places.present? %>
 	<h3>Nearby Places</h3>
 	<ul>
-		<% @nearby_places.each do |np| %>
-			<ul><%= np.name %></ul>
-			<ul><%= np.address %></ul>
-			<ul><%= np.distance %> km</ul>
+		<% @nearby_places.closest_three.each do |np| %>
+			<li><%= np.name %></li>
+			<p><%= np.address %></p>
+		<% if @place.latitude %>
+			<p><%= np.distance.round(2) %> km</p>
+		<% end %>
 		<% end %>
 	</ul>
 <% end %>
 
 <div id="map-canvas"></div>
 <div class="clear"></div>
+<% if @place.latitude %>
+	<%= javascript_tag do %>
+		initializeMap(<%= @place.latitude.to_f %>, <%= @place.longitude.to_f %>, true);
 
-<%= javascript_tag do %>
-	initializeMap(<%= @place.latitude.to_f %>, <%= @place.longitude.to_f %>, true);
-
-	var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
-	addMarkers(coords);
+		var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
+		addMarkers(coords);
+	<% end %>
 <% end %>
