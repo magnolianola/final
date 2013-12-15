@@ -1,6 +1,27 @@
 <h1><%= @place.name %></h1>
-
+<%= link_to "Edit Place", edit_place_path %>
 <p><b>About: </b><%= @place.description %></p>
 <p><b>Address: </b><%= @place.address %></p>
 <p><b>Phone Number: </b><%= @place.phone %></p>
 <p><b>Email: </b><%= @place.email %></p>
+
+<% if @nearby_places.present? %>
+	<h3>Nearby Places</h3>
+	<ul>
+		<% @nearby_places.each do |np| %>
+			<ul><%= np.name %></ul>
+			<ul><%= np.address %></ul>
+			<ul><%= np.distance %> km</ul>
+		<% end %>
+	</ul>
+<% end %>
+
+<div id="map-canvas"></div>
+<div class="clear"></div>
+
+<%= javascript_tag do %>
+	initializeMap(<%= @place.latitude.to_f %>, <%= @place.longitude.to_f %>, true);
+
+	var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
+	addMarkers(coords);
+<% end %>

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :subjects
   has_many :comments
   has_many :topics
+  has_many :items
 
   # acts_as_messageable
 

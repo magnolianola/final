@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
 
   def show
   	@place = Place.find(params[:id])
+    @nearby_places= @place.nearbys(2, units: :km)
   end
 
   def new
@@ -41,6 +42,6 @@ class PlacesController < ApplicationController
 
   private
   def place_params
-  	params.require(:place).permit(:name, :description, :address, :phone, :email, :hours)
+  	params.require(:place).permit(:name, :description, :address, :phone, :email, :hours, :latitude, :longitude)
   end
 end

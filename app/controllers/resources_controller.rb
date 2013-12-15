@@ -34,4 +34,10 @@ class ResourcesController < ApplicationController
   		render :edit
   	end
   end
+
+  private
+
+  def resource_params
+  	params.require(:listing).permit(:name)
+  end
 end

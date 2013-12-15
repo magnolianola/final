@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131214195800) do
+ActiveRecord::Schema.define(version: 20131214235744) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20131214195800) do
   end
 
   create_table "forums", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,6 +67,8 @@ ActiveRecord::Schema.define(version: 20131214195800) do
     t.string   "phone"
     t.string   "hours"
     t.string   "email"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
   create_table "posts", force: true do |t|
@@ -97,6 +104,11 @@ ActiveRecord::Schema.define(version: 20131214195800) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo"
+  end
+
+  create_table "swaps", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "topics", force: true do |t|
