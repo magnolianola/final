@@ -1,0 +1,9 @@
+<h1>Clothing Swap</h1>
+
+<% @users.each do |x| %>
+<% x.items.each do |i| %>
+	<li><%= i.name %></li>
+	<p><%= i.description %></p>
+	<p><%= image_tag( i.image.url(:thumb) ) %></p>
+	<% end %>
+<% end %>

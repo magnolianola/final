@@ -12,10 +12,13 @@ Superforum::Application.routes.draw do
       resources :comments
     end
   end
+
   resources :resources
   resources :places
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :users
+  resources :users do
+    resources :items
+  end
   resources :password_resets
   resources :forums
   root :to => "resources#index"

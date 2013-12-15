@@ -33,6 +33,8 @@ gem 'mailboxer'
 
 gem 'carrierwave'
 
+gem 'mini_magick'
+
 gem 'mime-types'
 
 gem 'foundation-rails'

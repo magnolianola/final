@@ -1,25 +1,31 @@
-<%= @subject.name %>
 
 
+<ul class="breadcrumbs">
+  <li><a href="#"><%= link_to "Home", resources_path %></a></li>
+  <li><a href="#"><%= link_to "Superforum", topics_path %></a></li>
+  <li><a href="#"><%= link_to @subject.topic.name, topic_path(@topic) %></a></li>
+  <li class="current"><a href="#"><%= @subject.name %></a></li>
+</ul>
 
 
 <% if @subject.comments %>
+	
 	<table border="1">
 		<tr>
-			<th>Name</th>
-			<th>Joined</th>
+			<th>User</th>
 			<th>Posts</th>
 			<th>Posted on:</th>
 		</tr>
 		<% @subject.comments.each do |x| %>
 			<tr>
-				<td><%= link_to x.user.username, user_path(x.user_id) %></td>
-				<td><%= display_date(x.user.created_at) %></td>
+				<td><%= link_to x.user.username, user_path(x.user_id) %></br>
+				Joined: <%= display_date(x.user.created_at) %></td>
 				<td><%= x.note %>  <%= image_tag( x.photo.url ) %></td>
 				<td><%= display_date(x.created_at) %></td>
 			</tr>
 		<% end %>	
 	</table>
+		
 	<%= form_for [@subject.topic, @subject, @comment], :html => { :multipart => true} do |f| %>
   				
   					<%= f.file_field :photo %></p>

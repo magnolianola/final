@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  # before_filter :ensure_logged_in, :only => [:edit, :create, :update, :destroy]
+  before_filter :load_user
+
 	def index
   	@items = Item.all
   end
@@ -16,18 +19,29 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = Item.new(item_params)
-  	if @item.save
-  		redirect_to item_path(@item)
-  	else
-  		render :new
-  	end
+    @item = @user.items.build(item_params)
+
+    @item.user_id = current_user.id
+    # respond_to do |format|
+      if @item.save
+        render :index
+      else
+        render :new
+      end
+    # end
+
+  # 	@item = Item.new(item_params)
+  # 	if @item.save
+  # 		redirect_to item_path(@item)
+  # 	else
+  # 		render :new
+  # 	end
   end
 
   def update
   	@item = Item.find(params[:id])
   	if @item.update_attributes(item_params)
-  		redirect_to item_path(@item)
+  		redirect_to user_items_path
   	else
   		render :edit
   	end
@@ -36,11 +50,15 @@ class ItemsController < ApplicationController
   def destroy
   	@item = Item.find(params[:id])
   	@item.destroy
-  	redirect_to items_path
+  	redirect_to user_items_path
   end
 
   private
   def item_params
-  	params.require(:item).permit(:name, :description, :user_id)
+  	params.require(:item).permit(:name, :description, :user_id, :image)
+  end
+
+  def load_user
+    @user = User.find(params[:user_id])
   end
 end

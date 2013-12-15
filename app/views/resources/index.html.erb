@@ -1,4 +1,14 @@
-<h1>Resources</h1>
+<h1>Trans Resources Toronto</h1>
+<p><% if current_user %>
+	
+	<%= link_to "Log Out", :logout %> |
+  <%= link_to "My Profile", user_path(current_user)%> |
+  <%= link_to "My Clothing", user_items_path(current_user)%>
+<% else %>
+	<%= link_to "Register", signup_path %> |
+	<%= link_to "Log In", :login %> 
 
-<%= link_to "Places to Go", places_path %></br>
-<%= link_to "The Forum", topics_path %>
+<% end %></p>
+<p><%= link_to "Places to Go", places_path %></p>
+<p><%= link_to "Clothing Swap", users_path %></p>
+<p><%= link_to "Superforum", topics_path %></p>

@@ -1,0 +1,36 @@
+<h1>Post New Clothing</h1>
+
+<%= form_for [@user, @item],  :html => { :multipart => true} do |i| %>
+  		<% if @item.errors.any? %>
+    	<div id="error_explanation">
+	     	<h2>
+	     		<%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:
+	     	</h2>
+
+     		<ul>
+	      		<% @item.errors.full_messages.each do |msg| %>
+	       		<li><%= msg %></li>
+     			<% end %>
+      		</ul>
+   		</div>
+  		<% end %>
+		<div class="field">
+			<%= i.label :name %><br/>
+			<%= i.text_field :name %>
+		</div>
+		<p>Write a description of your clothing and include a wishlist for what you would like to trade for.</p>
+		<div class="field">
+			<%= i.label :description %><br/>
+			<%= i.text_area :description %>
+		</div>
+		<div class="field">
+			<%= i.label :image %><br/>
+			<%= i.file_field :image %>
+		</div>
+		
+		
+		
+		<div class="actions">
+			<%= i.submit %>
+		</div>
+<% end %>
