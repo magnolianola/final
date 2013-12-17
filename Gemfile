@@ -29,8 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'sorcery'
 
-gem 'mailboxer'
-
 gem 'carrierwave'
 
 gem 'mini_magick'

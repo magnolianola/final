@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	# def destroy
+	# 	@message = Message.find(params[:id])
+	# 	@message.destroy
+	# 		redirect_to user_path(@user)
+	# end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -20,6 +26,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@recipient = User.find(params[:id])
+		if current_user
+			@message = Message.new
+			@message.recipient_id = @recipient.id
+		end
 	end
 
 	def update

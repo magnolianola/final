@@ -10,13 +10,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :topics
   has_many :items
+  has_many :messages
+  has_many :messages_received, class_name: "Message", foreign_key: :recipient_id
 
-  # acts_as_messageable
 
-  # def name
-  # end
-
-  # def mailboxer_email(object)
-  # 	return define_email@on_your.model"
-  # end
 end

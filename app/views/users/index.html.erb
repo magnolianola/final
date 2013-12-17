@@ -8,6 +8,7 @@
 <% @users.each do |x| %>
 	<% x.items.each do |i| %>
 		<li><%= i.name %></li>
+		<p>Posted by: <%= link_to i.user_id, user_path(6) %></p>
 		<p><%= i.description %></p>
 		<p><%= image_tag i.image_url :thumb %></p>
 		<%= link_to "See More", user_items_path(x)%>

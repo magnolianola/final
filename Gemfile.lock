@@ -44,8 +44,6 @@ GEM
     execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    foreigner (1.6.0)
-      activerecord (>= 3.0.0)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -65,10 +63,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailboxer (0.11.0)
-      carrierwave (>= 0.5.8)
-      foreigner (>= 0.9.1)
-      rails (> 3.0.0)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
@@ -149,7 +143,6 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 1.2)
   jquery-rails
-  mailboxer
   mime-types
   mini_magick
   rails (= 4.0.2)

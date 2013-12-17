@@ -11,9 +11,8 @@
 	<p><%= i.name %></p>
 	<p><%= i.description %></p>
 	<p><%= image_tag( i.image.url ) %></p>
+	<p>Contact: <%= link_to i.user_id, user_path(6) %></p>
 	<% if current_user %>
-	<%= link_to "Delete this Item", {:user_id => @user.id, :id => i.id}, :confirm => "Are you sure you want to delete this item?", :method => :delete %>
+		<%= link_to "Delete this Item", {:user_id => @user.id, :id => i.id}, :confirm => "Are you sure you want to delete this item?", :method => :delete %>
 	<% end %>
-	
-
 <% end %>
