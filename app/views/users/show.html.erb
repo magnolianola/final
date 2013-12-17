@@ -10,7 +10,7 @@
 		</b>
 	</p>
 	<% @user.messages_received.each do |x| %>
-			<p>To: <%= x.recipient %>, From: <%= x.user %></p>
+			<p>To: <%= x.recipient.username %>, From: <%= x.user.username %></p>
 			<p><%= x.title %></p>
 			<p><%= x.content %></p>
 			

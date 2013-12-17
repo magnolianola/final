@@ -13,10 +13,12 @@
 
  *= require_tree .
  */
-body {text-align:center;}
-table {border:1; background-color:#00FF00;}
-th{width:30%;}
+body {text-align:center; background-color: lavender !important;}
+table {border:1; background-color:#9966CC !important;}
+th{width:30%; background-color:#FFFFCC !important;}
+td {background-color:#FFFFCC !important}
 .3 {width:70%;}
+
 
 
 /*table tr th {background #222; color:#fff; padding:0; border:#111 solid 1px;}*/
@@ -27,4 +29,10 @@ th{width:30%;}
 #map-canvas {
 	height: 500px;
 	width: 500px;
+}
+
+.swap-item {
+  border: 1px solid black;
+  display: inline-block;
+  
 }

@@ -1,7 +1,44 @@
 <h1>All Places</h1>
+<%= link_to "Add a New Place", new_place_path %>
 
-<% @places.each do |place| %>
-	<ul><b><%= link_to place.name, place_path(place) %></b></ul><!-- </b>: <%= place.description %></p>
-	<%= place.address %></p>
-	<%= place.phone %> -->
-<% end %>
+<h3>Bookstores</h3>
+
+
+  <% @places.each do |place| %>
+    <% if place.category == "Books" %>
+    <ul><b><%= link_to place.name, place_path(place) %></b></ul>
+    <% end %>
+  <% end %>
+
+<h3>Transitioning</h3>
+
+  <% @places.each do |place| %>
+    <% if place.category == "Transitioning" %>
+    <ul><b><%= link_to place.name, place_path(place) %></b></ul>
+    <% end %>
+  <% end %>
+
+<h3>Activism</h3>
+
+  <% @places.each do |place| %>
+    <% if place.category == "Activism" %>
+    <ul><b><%= link_to place.name, place_path(place) %></b></ul>
+    <% end %>
+  <% end %>
+
+<h3>Peer Groups</h3>
+
+  <% @places.each do |place| %>
+    <% if place.category == "Peer Groups" %>
+    <ul><b><%= link_to place.name, place_path(place) %></b></ul>
+    <% end %>
+  <% end %>
+
+<h3>Other Resources</h3>
+
+  
+  <% @places.each do |place| %>
+    <% if place.category == "Other Resources" %>
+    <ul><b><%= link_to place.name, place_path(place) %></b></ul>
+    <% end %>
+  <% end %>

@@ -36,7 +36,7 @@
 
 // We use these to control various global styles
 // $body-bg: #fff;
-// $body-font-color: #222;
+// $body-font-color: #fff;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -159,8 +159,8 @@
 // $include-html-grid-classes: $include-html-classes;
 
 // We use this to control the maximum number of block grid elements per row
-// $block-grid-elements: 12;
-// $block-grid-default-spacing: rem-calc(20);
+ $block-grid-elements: 12;
+ $block-grid-default-spacing: rem-calc(20);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 // $block-grid-media-queries: true;
@@ -635,7 +635,7 @@
 // We use this to control the border color
 // $price-table-border: solid 1px #ddd;
 
-// We use this to control the bottom margin of the pricing table
+// We use this to control the bottom margin of the pricing 
 // $price-table-margin-bottom: rem-calc(20);
 
 // We use these to control the title styles
@@ -838,26 +838,27 @@
 // $table-even-row-bg: #f9f9f9  ;
 
 // These control the table cell border style
-// $table-border-style: solid;
-// $table-border-size: 1px;
-// $table-border-color: #ddd;
+$table-border-style: solid;
+$table-border-size: 1px;
+$table-border-color: #ddd;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5  ;
-// $table-head-font-size: rem-calc(14);
-// $table-head-font-color: #222;
-// $table-head-font-weight: bold;
-// $table-head-padding: rem-calc(8 10 10);
+$table-head-bg: #f5f5f5  ;
+$table-head-font-size: rem-calc(14);
+$table-head-font-color: #222;
+$table-head-font-weight: bold;
+$table-head-padding: rem-calc(8 10 10);
 
 // These control the row padding and font styles
-// $table-row-padding: rem-calc(9 10);
-// $table-row-font-size: rem-calc(14);
-// $table-row-font-color: #222;
-// $table-line-height: rem-calc(18);
+$table-row-padding: rem-calc(9 10);
+$table-row-font-size: rem-calc(14);
+$table-row-font-color: #222;
+$table-line-height: rem-calc(18);
 
 // These are for controlling the display and margin of tables
-// $table-display: table-cell;
-// $table-margin-bottom: rem-calc(20);
+$table-display: table-cell;
+$table-margin-bottom: rem-calc(20);
+
 
 //
 // TABS
@@ -927,7 +928,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #660066;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin

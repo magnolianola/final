@@ -1,6 +1,7 @@
 <h1>Create a New Thread</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'See All Threads', topic_path(@topic) %>
-<%= link_to 'Back to Topics', topics_path %>
+<p><%= link_to 'See All Threads', topic_path(@topic) %> |
+<%= link_to 'Back to Topics', topics_path %></p>
+
+<%= render 'form' %>

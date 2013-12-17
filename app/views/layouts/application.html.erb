@@ -13,6 +13,36 @@
     <%= csrf_meta_tags %>
   </head>
 
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Home", resources_path %></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <section class="top-bar-section">
+      <ul class="right">
+      <% if current_user %>
+          <li><%= link_to "My Profile", user_path(current_user) %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+      <% else %>
+          <li><%= link_to "Log In", login_path %></li>
+      <% end %>
+      </ul>
+      
+      <ul class="left">
+        <li><%= link_to "Places", places_path %></li>
+      </ul>
+      <ul class="left">
+        <li><%= link_to "Clothing Swap", users_path %></li>
+      </ul>
+      <ul class="left">
+        <li><%= link_to "Forum", topics_path %></li>
+      </ul>
+
+      </section>
+    </nav>
+
   <body>
 
     <%= yield %>

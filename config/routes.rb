@@ -1,6 +1,6 @@
 Superforum::Application.routes.draw do
   
-  
+  root :to => "resources#index"
   get "password_resets/create"
   get "password_resets/edit"
   get "password_resets/update"
@@ -21,7 +21,7 @@ Superforum::Application.routes.draw do
     resources :messages
   end
   resources :password_resets
-  root :to => "resources#index"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,3 +1,6 @@
+<h1>Log In</h1>
+
+
 <%= form_tag sessions_path do %>
 	<div class="field">
 		<%= label_tag :name %>
@@ -14,5 +17,7 @@
 	<div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
 
-<h1>Forgot Password?</h1>
+<p>New to Trans Resources Toronto? <%= link_to "Join Us", new_user_path %>!</p>
+
+<p>Forgot Password?</p>
 <%= render 'forgot_password_form' %>
