@@ -1,0 +1,13 @@
+<h1>Search Results</h1>
+
+<% @search_place.each do |p| %>
+  <p><%= link_to p.name, place_path(p) %></p>
+<% end %>
+
+<% @search_item.each do |i| %>
+  <p><%= link_to i.name, user_item_path(i.user_id, i) %></p>
+<% end %>
+
+<% @search_comment.each do |c| %>
+  <p><%= link_to c.note, topic_subject_path(c.subject.topic_id, c.subject_id, c) %></p>
+<% end %>

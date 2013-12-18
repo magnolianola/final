@@ -26,7 +26,7 @@
 		</b>
 	</p>
 <% end %>
-<% if current_user %>
+<% if current_user != @user %>
 
 	<p>Send a Message to <%= @user.username %>:</p>
 	<%= form_for [@user, @message] do |f| %>
@@ -58,6 +58,8 @@
 			<%= f.submit %>
 		</div>
 	<% end %>
+<% elsif current_user == @user %>
+	<p>Hey its you</p>
 <% else %>
-<p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
+	<p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
 <% end %>

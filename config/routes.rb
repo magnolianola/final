@@ -1,5 +1,6 @@
 Superforum::Application.routes.draw do
   
+  get "search/index"
   root :to => "resources#index"
   get "password_resets/create"
   get "password_resets/edit"

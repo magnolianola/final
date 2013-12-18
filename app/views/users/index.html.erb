@@ -1,18 +1,33 @@
 <h1>Clothing Swap</h1>
 <% if current_user %>
-	<p><%= link_to "Post New Clothing", new_user_item_path(current_user.id) %> |
-	<%= link_to "Back to Home", root_url %></p>
+	<h4><%= link_to "post new clothing", new_user_item_path(current_user.id) %></h4>
 
 <% else %>
-	<%= link_to "Post New Clothing", login_path %>
+	<h4><%= link_to "post new clothing", login_path %></h4>
 <% end %></br>
+
 
 <h4>search by tag:</h4>
 <div id="tag_cloud">
   <% tag_cloud Item.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-</div></br>
+</div></br></br>
+				
+
+<form>
+  <div class="row">
+      <div class="large-4 columns">
+        <label>
+					<%= form_tag("/search/index", method: "get") do %>
+					  <%= label_tag(:search, "Search Wishlists") %>
+					  <%= text_field_tag(:search) %>
+					  <%= submit_tag("Search") %>
+					<% end %>
+				</label>
+			</div>
+	</div>
+</form>
 
 <h4>all items:</h4>
 <%# @users.each do |x| %>
