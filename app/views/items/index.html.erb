@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user == @user %>
 <h1>My Clothing Swap</h1>
 <% else %>
 <h1><%= @user.username %> 's Clothing to Swap</h1>
