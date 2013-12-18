@@ -3,7 +3,6 @@
 	
 	<p><%= link_to "Log Out", :logout %> |
   <%= link_to "My Profile", user_path(current_user)%> |
-  <%= link_to "Back to Home", topics_path %> |
   <%= link_to "Add New Topic", new_topic_path %></p>
 <% else %>
 	<p><%= link_to "Register", signup_path %> |

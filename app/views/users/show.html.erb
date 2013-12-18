@@ -25,7 +25,8 @@
 			<%= @user.profile %>
 		</b>
 	</p>
-	
+<% end %>
+<% if current_user %>
 
 	<p>Send a Message to <%= @user.username %>:</p>
 	<%= form_for [@user, @message] do |f| %>
@@ -42,7 +43,6 @@
 			</ul>
 		</div>
 	<% end %>
-
 		<%= f.hidden_field :recipient_id %>
 
 		<div class="field">
@@ -58,5 +58,6 @@
 			<%= f.submit %>
 		</div>
 	<% end %>
-
+<% else %>
+<p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
 <% end %>

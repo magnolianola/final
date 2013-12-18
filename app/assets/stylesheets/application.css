@@ -20,6 +20,16 @@ td {background-color:#FFFFCC !important}
 .3 {width:70%;}
 
 
+#tag_cloud {
+  width: 300px;
+  margin:0 auto;
+  border:1px solid black;
+  line-height: 1.6em;
+    .s {font-size: 0.8em; }
+    .m {font-size: 1.2em; }
+    .l {font-size: 1.8em; }
+}
+
 
 /*table tr th {background #222; color:#fff; padding:0; border:#111 solid 1px;}*/
 /*table tr td {border:1px #ccc solid; padding:5px;}*/
@@ -29,6 +39,7 @@ td {background-color:#FFFFCC !important}
 #map-canvas {
 	height: 500px;
 	width: 500px;
+  display: inline-block;
 }
 
 .swap-item {

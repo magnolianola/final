@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   before_filter :load_user
 
 	def index
-  	@items = Item.all
+    if params[:tag]
+      @items = Item.tagged_with(params[:tag])
+    else
+    	@items = Item.all
+    end
   end
 
   def show
@@ -28,14 +32,10 @@ class ItemsController < ApplicationController
       else
         render :new
       end
-    # end
+  end
 
-  # 	@item = Item.new(item_params)
-  # 	if @item.save
-  # 		redirect_to item_path(@item)
-  # 	else
-  # 		render :new
-  # 	end
+  def tag_cloud
+    @tags = Item.tag_counts_on(:tags)
   end
 
   def update
@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-  	params.require(:item).permit(:name, :description, :user_id, :image)
+  	params.require(:item).permit(:name, :description, :user_id, :image, :tag_list)
   end
 
   def load_user

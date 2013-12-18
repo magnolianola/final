@@ -4,16 +4,20 @@
 <h1><%= @user.username %> 's Clothing to Swap</h1>
 <li>Contact: <%= link_to @user.username, user_path(@user) %></li>
 <% end %>
+<h4>search by tag:</h4>
+<div id="tag_cloud">
+  <% tag_cloud Item.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div></br>
+
 <!-- form for new item listing -->
 <!--display all items w users, tags, categories, pictures -->
 
 
 <% @user.items.each do |i| %>
 <ul class="small-block-grid-3">
-
-
 	<li><b><%= i.name %>:</b> <%= i.description %></li>
 	<li><%= link_to image_tag( i.image.url ), user_item_path(@user, i) %></li>
-	
 </ul>
 <% end %>
