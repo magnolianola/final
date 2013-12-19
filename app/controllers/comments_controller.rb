@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = @subject.comments.build(comment_params)
-		@comment.user = current_user
+		@comment.user_id = current_user.id
+
 		if @comment.save
 			redirect_to topic_subject_path(@subject.topic, @subject)
 		end
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
 	def destroy
 		@comment = Comment.find(params[:id])
 		@comment.destroy
-		redirect_to comment_path(@comment)
+		redirect_to topic_subject_path(@subject.topic_id, @subject)
 	end
 
 	def edit

@@ -1,5 +1,7 @@
 <h1><%= @place.name %></h1>
-<p><%= link_to "Edit Place", edit_place_path %></p>
+<% if current_user.try(:admin?) %>
+	<p><%= link_to "Edit Place", edit_place_path %></p>
+<% end %>
 <p><b>About: </b><%= @place.description %></p>
 <p><b>Address: </b><%= @place.address %></p>
 <p><b>Phone Number: </b><%= @place.phone %></p>

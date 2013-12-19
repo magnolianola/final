@@ -20,9 +20,14 @@ class SubjectsController < ApplicationController
   		@comment = Comment.new
  	end
 
+ 	def destroy
+ 		@comment = Comment.find(params[:id])
+ 		@comment.destroy
+ 		redirect_to topics_path
+ 	end
 	private
 	def subject_params
-  	params.require(:subject).permit(:name, :description, :topic_id, :photo)
+  	params.require(:subject).permit(:name, :description, :topic_id, :photo, :user_id)
   	end
 
   	def load_topic

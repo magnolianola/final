@@ -18,6 +18,7 @@ class TopicsController < ApplicationController
   def create
   	@topic = Topic.new(topic_params)
 
+    @topic.user_id = current_user.id
   	if @topic.save
   		redirect_to topics_url
   	else
