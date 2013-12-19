@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: final_development
   pool: 5
-  username: juliahopkins
+  username: nolalacey
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -32,7 +32,7 @@ test:
   encoding: unicode
   database: final_test
   pool: 5
-  username: juliahopkins
+  username: nolalacey
   password:
 
 production:
