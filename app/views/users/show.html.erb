@@ -59,7 +59,7 @@
 		</div>
 	<% end %>
 <% elsif current_user == @user %>
-	<p>Hey its you</p>
+	<p></p>
 <% else %>
 	<p><%= link_to "Log In", login_path %> to trade with <%= @user.username %>.</p>
 <% end %>
