@@ -48,6 +48,8 @@ end
 
 gem 'acts-as-taggable-on'
 
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

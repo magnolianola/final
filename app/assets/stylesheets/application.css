@@ -18,6 +18,10 @@ table {border:1; background-color:#9966CC !important;}
 th{width:30%; background-color:#FFFFCC !important;}
 td {background-color:#FFFFCC !important}
 .3 {width:70%;}
+.form {
+  margin: 0 auto;
+  width:500px;
+}
 
 
 #tag_cloud {
@@ -38,7 +42,7 @@ td {background-color:#FFFFCC !important}
 
 #map-canvas {
 	height: 500px;
-	width: 500px;
+	width: 600px;
   display: inline-block;
 }
 

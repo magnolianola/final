@@ -22,9 +22,10 @@
 <div class="clear"></div>
 <% if @place.latitude %>
 	<%= javascript_tag do %>
-		initializeMap(<%= @place.latitude.to_f %>, <%= @place.longitude.to_f %>, true);
-
 		var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>
-		addMarkers(coords);
+
+		var lat = <%= raw @place.latitude.to_f %>
+		var long = <%= raw @place.longitude.to_f %>
+		
 	<% end %>
 <% end %>

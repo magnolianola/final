@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-
+$(function(){ $(document).foundation(); });
 
 var map;
 
@@ -58,4 +58,3 @@ function addMarkers(coords) {
 // 	} 
 // })
 
-$(function(){ $(document).foundation(); });

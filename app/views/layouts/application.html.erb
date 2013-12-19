@@ -8,8 +8,8 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=#{ENV['AIzaSyA9AY4JzuW8cwcKc1icgqIaRiKjBH-YTZo']}&sensor=false" %>
-     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}&sensor=false" %>
+    
     <%= csrf_meta_tags %>
   </head>
 
@@ -46,6 +46,6 @@
   <body>
 
     <%= yield %>
-   
+     <%= javascript_include_tag "application" %>
   </body>
 </html>
