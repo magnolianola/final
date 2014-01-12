@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: final_development
   pool: 5
-  username: nolalacey
+  # username: nolalacey
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
