@@ -2,7 +2,7 @@
 <h1>My Clothing Swap</h1>
 <% else %>
 <h1><%= @user.username %> 's Clothing to Swap</h1>
-<li>Contact: <%= link_to @user.username, user_path(@user) %></li>
+<ul>Contact: <%= link_to @user.username, user_path(@user) %></ul>
 <% end %>
 
 <% if current_user == @user %>
@@ -24,7 +24,9 @@
 
 <% @user.items.each do |i| %>
 <ul class="small-block-grid-3">
-	<li><b><%= i.name %>:</b> <%= i.description %></li>
+	<li><b><%= i.name %>:</b> <%= i.description %>
+		<!-- <p>Created at: <%= i.display_date %></p> -->
+	</li>
 	<li><%= link_to image_tag( i.image.url ), user_item_path(@user, i) %></li>
 </ul>
 <% end %>

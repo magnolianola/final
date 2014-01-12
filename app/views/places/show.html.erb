@@ -11,7 +11,7 @@
 	<h3>Nearby Places</h3>
 	<ul>
 		<% @nearby_places.closest_three.each do |np| %>
-			<li><%= np.name %></li>
+			<b><ul><%= np.name %></ul></b>
 			<p><%= np.address %></p>
 		<% if @place.latitude %>
 			<p><%= np.distance.round(2) %> km</p>
@@ -21,7 +21,6 @@
 <% end %>
 
 <div id="map-canvas"></div>
-<div class="clear"></div>
 <% if @place.latitude %>
 	<%= javascript_tag do %>
 		var coords = <%= raw @nearby_places.map {|r| {latitude: r.latitude.to_f, longitude: r.longitude.to_f}}.to_json %>

@@ -29,21 +29,22 @@
 	</div>
 
 </div>
-
-<h4>all items:</h4>
+<div class="row">
+	<h4>all items:</h4>
 <%# @users.each do |x| %>
 
-	<ul class="large-block-grid-3">
-	<%# x.items.each do |i| %>
-	<% @items.each do |i| %>
-				<div class="swap-item">
-					<%= i.name %></br>
-					Posted by: <%= link_to i.user.username, user_path(i.user_id) %></br>
-					<%= image_tag i.image_url :thumb %></br>
-					<%= link_to "See More", user_items_path(i.user_id)%>
-				</div>
-	<% end %>
-	</ul>
+		<ul class="medium-4 column">
+		<%# x.items.each do |i| %>
+		<% @items.each do |i| %>
+					<div class="swap-item">
+						<%= i.name %></br>
+						Posted by: <%= link_to i.user.username, user_path(i.user_id) %></br>
+						<%= image_tag i.image_url :thumb %></br>
+						<%= link_to "See More", user_items_path(i.user_id)%>
+					</div>
+		<% end %>
+		</ul>
+</div>
 
 <%# end %>
 

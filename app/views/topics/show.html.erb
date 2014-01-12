@@ -10,8 +10,8 @@
 
 <!-- 
 <p><%= @topic.description %></p> -->
-<% if current_user == @topic.user || current_user.admin? %>
-  <%= link_to "Delete this Topic", topic_path(@topic), :confirm => "Are you sure you want to delete this topic?", :method => :delete %> | 
+<% if current_user == @topic.user || current_user.try(:admin?) %>
+  <%= link_to "Delete this Topic", topic_path(@topic), :confirm => "Are you sure you want to delete this topic?", :method => :delete %>
 <% end %>
 <% if current_user %>
   <p><%= link_to "Post a New Thread", new_topic_subject_path(@topic) %></p>
@@ -30,7 +30,7 @@
   <tr>
   	<td>
      <%= link_to x.name, topic_subject_path(@topic, x) %>
-      <% if current_user == x.user || current_user.admin? %>
+      <% if current_user == @topic.user || current_user.try(:admin?) %>
       <%= link_to "(Delete this Thread)", topic_subject_path(@topic, x), :confirm => "Are you sure you want to delete this thread?", :method => :delete %> 
       <% end %>
 	</td>

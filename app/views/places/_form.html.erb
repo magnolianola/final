@@ -1,44 +1,50 @@
-<%= form_for(@place) do |f| %>
-  		<% if @place.errors.any? %>
-    	<div id="error_explanation">
-	     	<h2>
-	     		<%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:
-	     	</h2>
+<div class="form">
+  <div class="row">
+      <div class="large-12 columns">
+		<%= form_for(@place) do |f| %>
+		  		<% if @place.errors.any? %>
+		    	<div id="error_explanation">
+			     	<h2>
+			     		<%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:
+			     	</h2>
 
-     		<ul>
-	      		<% @place.errors.full_messages.each do |msg| %>
-	       		<li><%= msg %></li>
-     			<% end %>
-      		</ul>
-   		</div>
-  		<% end %>
-		<div class="field">
-			<%= f.label :name %><br/>
-			<%= f.text_field :name %>
+		     		<ul>
+			      		<% @place.errors.full_messages.each do |msg| %>
+			       		<li><%= msg %></li>
+		     			<% end %>
+		      		</ul>
+		   		</div>
+		  		<% end %>
+				<div class="field">
+					<%= f.label :name %><br/>
+					<%= f.text_field :name %>
+				</div>
+				<div class="field">
+					<%= f.label :description %><br/>
+					<%= f.text_area :description %>
+				</div>
+				<div class="field">
+					<%= f.label :address %><br/>
+					<%= f.text_area :address %>
+				</div>
+				<div class="field">
+					<%= f.label :phone %><br/>
+					<%= f.text_area :phone %>
+				</div>
+				<div class="field">
+					<%= f.label :email %><br/>
+					<%= f.text_area :email %>
+				</div>
+				<div class="field">
+					<%= f.label :category %><br/>
+					<%= f.select(:category, options_for_select([["Books"], ["Peer Groups"], ["Transitioning"], ["Activism"], ["Other Resources"]], selected: :category), :prompt => true) %>
+				</div>
+				
+				
+				<div class="actions">
+					<%= f.submit %>
+				</div>
+		<% end %>
 		</div>
-		<div class="field">
-			<%= f.label :description %><br/>
-			<%= f.text_area :description %>
-		</div>
-		<div class="field">
-			<%= f.label :address %><br/>
-			<%= f.text_area :address %>
-		</div>
-		<div class="field">
-			<%= f.label :phone %><br/>
-			<%= f.text_area :phone %>
-		</div>
-		<div class="field">
-			<%= f.label :email %><br/>
-			<%= f.text_area :email %>
-		</div>
-		<div class="field">
-			<%= f.label :category %><br/>
-			<%= f.select(:category, options_for_select([["Books"], ["Peer Groups"], ["Transitioning"], ["Activism"], ["Other Resources"]], selected: :category), :prompt => true) %>
-		</div>
-		
-		
-		<div class="actions">
-			<%= f.submit %>
-		</div>
-<% end %>
+	</div>
+</div>

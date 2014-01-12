@@ -27,11 +27,21 @@
 		
 	<%= form_for [@subject.topic, @subject, @comment], :html => { :multipart => true} do |f| %>
   				
-  					<%= f.file_field :photo %></p>
-       
-      				<%= f.text_area :note %>
+  					
+       				
+       				<div class="form">
+  						<div class="row">
+      						<div class="large-12 columns">
+      							<%= f.file_field :photo %>
+      							
+      							<%= f.text_area :note %>
 
-					<%= f.submit %>
+
+								<%= f.submit %>
+      						</div>
+      					</div>
+      				</div>
+
     
 	<% end %>
 <% end %>
