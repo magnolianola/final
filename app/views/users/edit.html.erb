@@ -5,8 +5,14 @@
 
 <!-- 
 <%= @user.profile %> -->
-	<%= form_for(@user) do |f| %>
-	<%= f.text_area :profile %>
+<div class="form">
+  <div class="row">
+      <div class="large-12 columns">
+		<%= form_for(@user) do |f| %>
+		<%= f.text_area :profile %>
+	  </div>
+  </div>
+</div>
 
 	<%= f.submit %>
 <% end %>

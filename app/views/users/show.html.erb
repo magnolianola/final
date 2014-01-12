@@ -28,36 +28,44 @@
 <% end %>
 <% if current_user != @user %>
 
-	<p>Send a Message to <%= @user.username %>:</p>
-	<%= form_for [@user, @message] do |f| %>
-	<% if @message.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+<p>Send a Message to <%= @user.username %>:</p>
 
-			<ul>
-				<% @message.errors.full_messages.each do |msg| %>
-					<li>
-							<%= msg %>
-						<% end %>
-					</li>
-			</ul>
-		</div>
-	<% end %>
-		<%= f.hidden_field :recipient_id %>
+<div class="form">
+  <div class="row">
+      <div class="large-12 columns">
+				<%= form_for [@user, @message] do |f| %>
+				<% if @message.errors.any? %>
+					<div id="error_explanation">
+						<h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
-		<div class="field">
-			<%= f.label "Subject" %><br/>
-			<%= f.text_field :title %><br/>
+						<ul>
+							<% @message.errors.full_messages.each do |msg| %>
+								<li>
+										<%= msg %>
+									<% end %>
+								</li>
+						</ul>
+					</div>
+				<% end %>
+
+				<%= f.hidden_field :recipient_id %>
+
+				<div class="field">
+					<%= f.label "Subject" %><br/>
+					<%= f.text_field :title %><br/>
+				</div>
+				<div class="field">
+					<%= f.label "Message" %><br/>
+					<%= f.text_area :content %><br/>
+				</div>
+				<p>From <%= current_user.username %></p>
+				<div class="actions">
+					<%= f.submit %>
+				</div>
+			<% end %>
 		</div>
-		<div class="field">
-			<%= f.label "Message" %><br/>
-			<%= f.text_area :content %><br/>
-		</div>
-		<p>From <%= current_user.username %></p>
-		<div class="actions">
-			<%= f.submit %>
-		</div>
-	<% end %>
+	</div>
+</div>
 <% elsif current_user == @user %>
 	<p></p>
 <% else %>
